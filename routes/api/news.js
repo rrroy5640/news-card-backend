@@ -16,7 +16,7 @@ function setNewsToCache(topic, newsData) {
 
 router.get("/:topic", async (req, res) => {
   const topic = req.params.topic;
-  const apikey = "0bdbecfa6c78ce6ddef2bc1c0f681836";
+  const apikey = process.env.apikey;
   const url = `https://gnews.io/api/v4/search?q=${topic}&lang=en&country=au&max=10&apikey=${apikey}`;
 
   let newsData = getNewsFromCache(topic);
