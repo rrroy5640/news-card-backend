@@ -27,19 +27,6 @@ router.get("/:topic", async (req, res) => {
   if (!newsData) {
     const response = await axios.get(url);
     newsData = response.data;
-    newsData.data.articles.map(async (article) => {
-      const prompt = `Generate a summary for the following article: ${article.title}.\n\nArticle: ${article.description}`;
-      const gptResponse = await openai.complete({
-        engine: "davinci",
-        prompt: prompt,
-        max_tokens: 100,
-        temperature: 0.5,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0,
-      });
-      article.summary = gptResponse.data.choices[0].text;
-    });
 
     setNewsToCache(topic, newsData);
   }
