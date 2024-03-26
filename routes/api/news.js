@@ -1,9 +1,6 @@
-import OpenAI from "openai";
-
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const openai = new OpenAI();
 
 const NodeCache = require("node-cache");
 // set cache to expire in 1 hour
