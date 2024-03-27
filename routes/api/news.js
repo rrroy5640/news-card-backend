@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const NodeCache = require("node-cache");
 // set cache to expire in 1 hour
-const cache = new NodeCache({ stdTTL: 3600 });
+const cache = new NodeCache({ stdTTL: 3600*12 });
 
 function getNewsFromCache(topic) {
   return cache.get(topic);
